@@ -23,20 +23,31 @@ while true; do
                 echo ""
                 echo "updated: $current"
                 last=$current
-                eval $2
-		
-		pass_or_failure=`eval $2 |grep 'failed'|sed s/=//g `
-		# 検索->ノイズ削除
+
+		# 画面に出力して、かつ変数に格納したい
+                # TEST_INPUT=`eval $2`
+		# echo $TEST_INPUT
+		echo "`eval $2`"| (TEST_INPUT=$(cat) ;echo -e "$TEST_INPUT";)
+		# TEST_INPUTが渡せてないか、代入できてない。
+		echo ============~~~~~~~~~~~~~~~~~~~~~~~~~
+		echo $TEST_INPUT
+		echo ============~~~~~~~~~~~~~~~~~~~~~~~~~
+		pass_or_failure=`echo $TEST_INPUT |grep 'failed'|sed s/=//g `
+		# 検索->ノイズ削除->代入
 		if $pass_or_failure ;
-		   # もっとまともな音にしたい
+		   # TODO: もっとまともな音にしたい
 		    then
-		        spd-say 'success success success'
-			echo 'PPP'			
-		    else
 		        spd-say 'error error error'
-			echo 'failure'		    
+			echo 'failure'
+			echo $pass_or_failure
+		    else
+		        spd-say 'success success success'
+			echo 'success'
+			echo $pass_or_failure
+			
 		fi
         fi
 done
+
 
 
