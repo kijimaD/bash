@@ -3,12 +3,14 @@
 
 pc="/home/kijima/Dropbox/pages/"
 server="xsrv:/home/kijima9791/a9ne.com/public_html/wiki/data/pages/"
+exc_array=(".git"
+	   ".#*")
 
-# あとで直す
-exc=".git"
-exc2=".#*" # 一時ファイルは除外
+for item in ${exc_array[@]}; do
+    exc+="--exclude $item "
+done
 
-rsync -auvz --exclude $exc --exclude $exc2 $pc $server
-rsync -auvz --exclude $exc --exclude $exc2 $server $pc
+rsync -auvz $exc $pc $server
+rsync -auvz $exc $server $pc
 
 # 両方から削除や追加を行うので、--deleteで削除をするのはやりにくい…どうすれば？
