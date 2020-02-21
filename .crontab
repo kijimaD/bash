@@ -1,5 +1,5 @@
-00 * * * * /home/kijima/bash/sound.sh /home/kijima/bash/win_nt.wav >> /home/kijima/Dropbox/junk/2020-01-17-024105.org
+00 * * * * /home/kijima/bash/sound.sh /home/kijima/bash/win_nt.wav
 
-30 * * * * /home/kijima/bash/sound.sh /home/kijima/bash/st.wav >> /home/kijima/Dropbox/junk/2020-01-17-024105.org
+30 * * * * /home/kijima/bash/sound.sh /home/kijima/bash/st.wav
 
-05 * * * * /home/kijima/bash/wiki_sync.sh
+*/5 * * * * /home/kijima/bash/wiki_sync.sh
