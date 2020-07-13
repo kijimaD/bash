@@ -1,0 +1,9 @@
+#! /bin/bash
+# sprite-extractor's alias
+# https://developer.aliyun.com/mirror/npm/package/sprite-extractor
+# install: install npm install -g sprite-extractor
+
+sheet="${1}.png"
+json="${1}.json"
+
+sprite-extractor --sheet $sheet --data $json

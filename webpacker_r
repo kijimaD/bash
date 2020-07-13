@@ -1,0 +1,14 @@
+#! /bin/bash
+# Rename webpacker archives
+
+goal_name="${1}"
+
+target_sprite_name="spritesheet.png"
+target_json_name="spritesheet.json"
+
+goal_sprite_name="${goal_name}_sprite.png"
+goal_json_name="${goal_name}_packed.json"
+
+sed -i -e "s/${target_sprite_name}/${goal_sprite_name}/" $target_json_name
+mv $target_sprite_name $goal_sprite_name
+mv $target_json_name $goal_json_name
