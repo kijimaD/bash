@@ -11,3 +11,4 @@ echo '実行'
 
 # /usr/bin/aplay /home/kijima/bash/win_nt.wav
 /usr/bin/aplay $1
+espeak `date "+%H:%M"`
